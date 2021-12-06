@@ -1,0 +1,17 @@
+[Unit]
+Description=Minecraft Server
+After=network.target
+
+[Service]
+WorkingDirectory={{ minecraft_home }}
+
+User={{ minecraft_user }}
+Group={{ minecraft_group }}
+
+Restart=always
+
+ExecStart=/bin/java -Xms1G -Xmx2G -jar minecraft.jar nogui
+
+
+[Install]
+WantedBy=multi-user.target

@@ -24,3 +24,16 @@
     owner: "{{ minecraft_user }}"
     group: "{{ minecraft_group }}"
   become: true
+
+- name: Template and Copy Systemd-Unit
+  ansible.builtin.template:
+    src: templates/minecraft.service.j2
+    dest: /etc/systemd/system/minecraft.service
+  become: true
+
+- name: Start and Enable Service
+  ansible.builtin.service:
+    name: minecraft
+    state: started
+    enabled: true
+  become: true
