@@ -1,0 +1,5 @@
+- name: Create Minecraft-User
+  ansible.builtin.user:
+    name: minecraft
+    group: minecraft
+  become: true
