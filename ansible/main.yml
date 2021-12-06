@@ -4,8 +4,8 @@
     - bootstrap-os
     - setup-server
   vars:
-    minecraft-version: 1.18
-    minecraft-build: 54
-    minecraft-user: minecraft
-    minecraft-group: minecraft
-    minecraft-home: /srv/minecraft
+    minecraft_version: 1.18
+    minecraft_build: 54
+    minecraft_user: minecraft
+    minecraft_group: minecraft
+    minecraft_home: /srv/minecraft
