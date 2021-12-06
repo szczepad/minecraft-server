@@ -1,5 +1,19 @@
 - name: Create Minecraft-User
   ansible.builtin.user:
-    name: minecraft
-    group: minecraft
+    name: "{{ minecraft-user }}"
+    group: "{{ minecraft-group }}"
   become: true
+
+- name: Create Directory for Server
+  ansible.builtin.file:
+    path: "{{ minecraft-home }}"
+    state: directory
+    owner: "{{ minecraft-user }}"
+    group: "{{ minecraft-group }}"
+
+- name: Download Server
+  ansible.builtin.get_url:
+    url: https://papermc.io/api/v2/projects/paper/versions/{{ minecraft-version }}/builds/{{ minecraft-build }}/downloads/paper-{{ minecraft-version }}-{{ minecraft-build }}.jar
+    dest: "{{ minecraft-home }}/minecraft.jar"
+    owner: "{{ minecraft-user }}"
+    group: "{{ minecraft-group }}"

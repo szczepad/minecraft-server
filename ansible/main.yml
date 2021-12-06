@@ -3,3 +3,9 @@
   roles:
     - bootstrap-os
     - setup-server
+  vars:
+    minecraft-version: 1.18
+    minecraft-build: 54
+    minecraft-user: minecraft
+    minecraft-group: minecraft
+    minecraft-home: /srv/minecraft
