@@ -1,3 +1,8 @@
+- name: Create Minecraft-Group
+  ansible.builtin.group:
+    name: "{{ minecraft_group }}"
+  become: true
+
 - name: Create Minecraft-User
   ansible.builtin.user:
     name: "{{ minecraft_user }}"
@@ -8,8 +13,9 @@
   ansible.builtin.file:
     path: "{{ minecraft_home }}"
     state: directory
-    owner: "{{ minecraft-user }}"
+    owner: "{{ minecraft_user }}"
     group: "{{ minecraft_group }}"
+  become: true
 
 - name: Download Server
   ansible.builtin.get_url:
@@ -17,3 +23,4 @@
     dest: "{{ minecraft_home }}/minecraft.jar"
     owner: "{{ minecraft_user }}"
     group: "{{ minecraft_group }}"
+  become: true
