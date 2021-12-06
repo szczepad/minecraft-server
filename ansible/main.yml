@@ -1,7 +1,6 @@
 ---
 - hosts: all
   roles:
-    - bootstrap-os
     - setup-server
   vars:
     minecraft_version: 1.18
